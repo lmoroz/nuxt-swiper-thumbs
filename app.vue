@@ -19,8 +19,8 @@ const setSwiper = (swiper) => {
 };
 const setThumbsSwiper = (swiper) => {
   thumbsSwiper.value = swiper;
-  mainSwiper.value.thumbs.swiper = swiper;
-  swiper.controller.control = mainSwiper.value;
+  mainSwiper.value.thumbs.swiper = thumbsSwiper.value;
+  //thumbsSwiper.value.controller.control = mainSwiper.value;
 };
 
 const SwiperConfig = {
@@ -51,6 +51,7 @@ const SwiperConfig = {
   },
 };
 const SwiperThumbsConfig = {
+  modules: [SwiperNavigation, SwiperThumbs, SwiperController],
   freeMode: true,
   slidesPerView: 4,
   spaceBetween: 10,
