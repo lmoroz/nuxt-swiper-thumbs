@@ -11,16 +11,27 @@ const slides = ref([
   'https://swiperjs.com/demos/images/nature-10.jpg',
 ]);
 
+const mainSwiper = ref(null);
 const thumbsSwiper = ref(null);
+
+const setSwiper = (swiper) => {
+  mainSwiper.value = swiper;
+};
 const setThumbsSwiper = (swiper) => {
   thumbsSwiper.value = swiper;
 };
 
 const SwiperConfig = {
-  modules: [SwiperEffectCreative, SwiperNavigation, SwiperThumbs],
+  modules: [
+    SwiperEffectCreative,
+    SwiperNavigation,
+    SwiperThumbs,
+    SwiperController,
+  ],
   loop: true,
   effect: 'creative',
   slidesPerView: 1,
+  watchSlidesProgress: true,
   navigation: {
     nextEl: '.swiper_controls_next',
     prevEl: '.swiper_controls_prev',
@@ -39,11 +50,15 @@ const SwiperConfig = {
   thumbs: { swiper: thumbsSwiper.value },
 };
 const SwiperThumbsConfig = {
-  modules: [SwiperNavigation, SwiperThumbs],
+  modules: [SwiperNavigation, SwiperThumbs, SwiperController],
   freeMode: true,
   slidesPerView: 4,
   spaceBetween: 10,
+  watchSlidesProgress: true,
   loop: true,
+  controller: {
+    control: mainSwiper.value,
+  },
 };
 </script>
 
@@ -53,7 +68,7 @@ const SwiperThumbsConfig = {
     <hr />
     <h2>Swiper Creative Effect</h2>
     <div class="swiper_wrapper">
-      <Swiper :height="300" v-bind="SwiperConfig">
+      <Swiper :height="300" v-bind="SwiperConfig" @swiper="setSwiper">
         <SwiperSlide v-for="(slide, idx) in slides" :key="idx">
           <img :src="slide" />
         </SwiperSlide>
