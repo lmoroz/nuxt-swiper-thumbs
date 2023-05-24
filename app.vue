@@ -43,6 +43,7 @@ const SwiperThumbsConfig = {
   freeMode: true,
   slidesPerView: 4,
   spaceBetween: 10,
+  loop: true
 };
 </script>
 
