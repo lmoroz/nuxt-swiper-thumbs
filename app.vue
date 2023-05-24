@@ -1,16 +1,15 @@
 <script setup>
-const slides = ref(
-  Array.from({ length: 10 }, () => {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    // Figure out contrast color for font
-    const contrast =
-      r * 0.299 + g * 0.587 + b * 0.114 > 186 ? 'black' : 'white';
-
-    return { bg: `rgb(${r}, ${g}, ${b})`, color: contrast };
-  })
-);
+const slides = ref([
+  'https://swiperjs.com/demos/images/nature-1.jpg',
+  'https://swiperjs.com/demos/images/nature-2.jpg',
+  'https://swiperjs.com/demos/images/nature-3.jpg',
+  'https://swiperjs.com/demos/images/nature-4.jpg',
+  'https://swiperjs.com/demos/images/nature-5.jpg',
+  'https://swiperjs.com/demos/images/nature-6.jpg',
+  'https://swiperjs.com/demos/images/nature-7.jpg',
+  'https://swiperjs.com/demos/images/nature-8.jpg',
+  'https://swiperjs.com/demos/images/nature-10.jpg',
+]);
 
 let swiper1;
 
@@ -55,12 +54,8 @@ const setThumbsSwiper = (swiper) => {
     <h2>Swiper Creative Effect</h2>
     <div class="swiper_wrapper">
       <Swiper :height="300" v-bind="SwiperConfig">
-        <SwiperSlide
-          v-for="(slide, idx) in slides"
-          :key="idx"
-          :style="`background-color: ${slide.bg}; color: ${slide.color}`"
-        >
-          {{ idx }}
+        <SwiperSlide v-for="(slide, idx) in slides" :key="idx">
+          <img :src="slide" />
         </SwiperSlide>
       </Swiper>
       <div class="swiper_controls">
@@ -74,12 +69,8 @@ const setThumbsSwiper = (swiper) => {
       @swiper="setThumbsSwiper"
       class="thumbs"
     >
-      <SwiperSlide
-        v-for="(slide, idx) in slides"
-        :key="idx"
-        :style="`background-color: ${slide.bg}; color: ${slide.color}`"
-      >
-        {{ idx }}
+      <SwiperSlide v-for="(slide, idx) in slides" :key="idx">
+        <img :src="slide" />
       </SwiperSlide>
     </Swiper>
   </div>
@@ -133,10 +124,17 @@ const setThumbsSwiper = (swiper) => {
 .thumbs .swiper-slide {
   width: 25%;
   height: 100%;
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
 .thumbs .swiper-slide-thumb-active {
   opacity: 1;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>
