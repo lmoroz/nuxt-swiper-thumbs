@@ -59,6 +59,7 @@ const SwiperThumbsConfig = {
   controller: {
     control: '.main-slider',
   },
+  navigation: true
 };
 </script>
 
