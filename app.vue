@@ -43,7 +43,7 @@ const SwiperThumbsConfig = {
   freeMode: true,
   slidesPerView: 4,
   spaceBetween: 10,
-  loop: true
+  loop: true,
 };
 </script>
 
@@ -107,7 +107,7 @@ const SwiperThumbsConfig = {
   justify-content: center;
   align-items: center;
   font-size: 18px;
-  height: 20vh;
+  height: 400px;
   font-size: 4rem;
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
@@ -119,6 +119,7 @@ const SwiperThumbsConfig = {
 }
 .thumbs {
   margin-top: 10px;
+  height: 100px;
 }
 
 .thumbs .swiper-slide {
