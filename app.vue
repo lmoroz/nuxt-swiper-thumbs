@@ -11,7 +11,10 @@ const slides = ref([
   'https://swiperjs.com/demos/images/nature-10.jpg',
 ]);
 
-let swiper1;
+const thumbsSwiper = ref(null);
+const setThumbsSwiper = (swiper) => {
+  thumbsSwiper.value = swiper;
+};
 
 const SwiperConfig = {
   modules: [SwiperEffectCreative, SwiperNavigation, SwiperThumbs],
@@ -33,17 +36,13 @@ const SwiperConfig = {
       scale: 0.8,
     },
   },
+  thumbs: { swiper: thumbsSwiper.value },
 };
 const SwiperThumbsConfig = {
   modules: [SwiperNavigation, SwiperThumbs],
   freeMode: true,
   slidesPerView: 4,
   spaceBetween: 10,
-};
-
-const thumbsSwiper = ref(null);
-const setThumbsSwiper = (swiper) => {
-  thumbsSwiper.value = swiper;
 };
 </script>
 
