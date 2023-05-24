@@ -126,6 +126,7 @@ const SwiperThumbsConfig = {
   width: 25%;
   height: 100%;
   opacity: 0.3;
+  cursor: pointer;
 }
 
 .thumbs .swiper-slide-thumb-active {
