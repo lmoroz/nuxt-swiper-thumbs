@@ -36,7 +36,7 @@ const SwiperConfig = {
   },
 };
 const SwiperThumbsConfig = {
-  modules: [SwiperEffectCreative, SwiperNavigation, SwiperThumbs],
+  modules: [SwiperNavigation, SwiperThumbs],
   freeMode: true,
   slidesPerView: 4,
   spaceBetween: 10,
