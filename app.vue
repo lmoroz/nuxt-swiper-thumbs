@@ -57,7 +57,7 @@ const SwiperThumbsConfig = {
   watchSlidesProgress: true,
   loop: true,
   controller: {
-    control: mainSwiper.value,
+    control: '.main-slider',
   },
 };
 </script>
@@ -68,7 +68,12 @@ const SwiperThumbsConfig = {
     <hr />
     <h2>Swiper Creative Effect</h2>
     <div class="swiper_wrapper">
-      <Swiper :height="300" v-bind="SwiperConfig" @swiper="setSwiper">
+      <Swiper
+        :height="300"
+        v-bind="SwiperConfig"
+        @swiper="setSwiper"
+        class="main-slider"
+      >
         <SwiperSlide v-for="(slide, idx) in slides" :key="idx">
           <img :src="slide" />
         </SwiperSlide>
