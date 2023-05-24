@@ -12,12 +12,15 @@ const slides = ref([
 ]);
 
 const mainSwiper = ref(null);
+const thumbsSwiper = ref(null);
 
 const setSwiper = (swiper) => {
   mainSwiper.value = swiper;
 };
 const setThumbsSwiper = (swiper) => {
+  thumbsSwiper.value = swiper;
   mainSwiper.value.thumbs.swiper = swiper;
+  swiper.controller.control = mainSwiper.value;
 };
 
 const SwiperConfig = {
@@ -78,7 +81,6 @@ const SwiperThumbsConfig = {
       </div>
     </div>
     <Swiper
-      v-if="mainSwiper"
       :height="300"
       v-bind="SwiperThumbsConfig"
       @swiper="setThumbsSwiper"
