@@ -5,10 +5,6 @@ const slides = ref([
   'https://swiperjs.com/demos/images/nature-3.jpg',
   'https://swiperjs.com/demos/images/nature-4.jpg',
   'https://swiperjs.com/demos/images/nature-5.jpg',
-  'https://swiperjs.com/demos/images/nature-6.jpg',
-  'https://swiperjs.com/demos/images/nature-7.jpg',
-  'https://swiperjs.com/demos/images/nature-8.jpg',
-  'https://swiperjs.com/demos/images/nature-10.jpg',
 ]);
 
 const mainSwiper = ref(null);
@@ -50,10 +46,11 @@ const SwiperConfig = {
 };
 const SwiperThumbsConfig = {
   modules: [SwiperNavigation, SwiperThumbs, SwiperController],
-  slidesPerView: 4,
+  slidesPerView: slides.value.length,
   spaceBetween: 10,
   watchSlidesProgress: true,
-  loop: true,
+  loop: false,
+  followFinger: false,
 };
 </script>
 
