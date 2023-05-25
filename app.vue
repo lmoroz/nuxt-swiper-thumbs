@@ -19,8 +19,6 @@ const setSwiper = (swiper) => {
 };
 const setThumbsSwiper = (swiper) => {
   thumbsSwiper.value = swiper;
-  //mainSwiper.value.thumbs.swiper = thumbsSwiper.value;
-  //thumbsSwiper.value.controller.control = mainSwiper.value;
 };
 
 const SwiperConfig = {
